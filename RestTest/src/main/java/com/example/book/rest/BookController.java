@@ -1,23 +1,22 @@
-package com.example.demo;
+package com.example.book.rest;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.domain.Book;
-import com.example.demo.repository.RestTestRepository;
+import com.example.book.domain.Book;
+import com.example.book.service.BookService;
 
 @RestController
-public class RestTestController {
+public class BookController {
 
 	@Autowired
-	RestTestRepository restTestRepository;
+	BookService bookService;
 	
 	@GetMapping("/book")
 	public List<Book> list(){
-		return restTestRepository.findAll();
+		return bookService.findAll();
 	}
 }
