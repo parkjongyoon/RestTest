@@ -1,5 +1,6 @@
 package com.example.book.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,7 +18,9 @@ public class BookServiceImpl implements BookService {
 	
 	@Override
 	public List<Book> findAll() {
-		return (List<Book>) bookRepository.findAll();
+		List<Book> list = new ArrayList();
+		bookRepository.findAll().forEach(e->list.add(e));
+		return list;
 	}
 
 	@Override
